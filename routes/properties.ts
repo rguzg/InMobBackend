@@ -8,6 +8,11 @@ interface PropertiesRequest extends Request {
         options?: string
     },
 }
+interface PropertyRequest extends Request {
+    params: {
+        id: string
+    },
+}
 
 const router = Router();
 
@@ -31,6 +36,34 @@ router.get('/', async (req: PropertiesRequest, res) => {
         }
 
         return res.json(properties);
+    } catch (error: any) {
+        return res.status(401).json({error: error.message});
+    }
+
+});
+
+router.get('/:id', async (req: PropertyRequest, res) => {
+    let {id} = req.params;
+    
+    if(!req.headers['authorization']){
+        return res.status(401).json({error: 'Unauthorized'});
+    }
+
+    if(!id){
+        return res.status(400).json({error: 'Bad Request'});
+    }
+    
+    let eb = new EasyBrokerAPI(req.headers['authorization']);
+    
+    try {
+
+        let property = await eb.getPropertyByID(id);
+
+        if(!property){
+            return res.status(404).json(property);
+        }
+
+        return res.json(property);
     } catch (error: any) {
         return res.status(401).json({error: error.message});
     }
