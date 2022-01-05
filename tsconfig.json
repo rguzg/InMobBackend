@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "module": "es6",
+        "lib": [
+            "ES6",
+            "DOM"
+        ],
+        "outDir": "./dist",
+        "target": "ES6",
+        "strict": true,
+        "esModuleInterop": true,
+        "declaration": true
+    }
+}

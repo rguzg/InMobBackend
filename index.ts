@@ -1,6 +1,7 @@
 import express, {Application} from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import properties from './routes/properties.js';
  
 dotenv.config();
 
@@ -12,6 +13,9 @@ if(!process.env.FRONTEND_URL){
 
 app.use(cors({origin: process.env.FRONTEND_URL}));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/api/properties', properties);
 
 app.listen(process.env.PORT || 8000, () => {
     console.log('Server is running...');
