@@ -1,0 +1,19 @@
+{
+  "name": "inmobbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rguzg/InMobBackend.git"
+  },
+  "author": "rguzg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rguzg/InMobBackend/issues"
+  },
+  "homepage": "https://github.com/rguzg/InMobBackend#readme"
+}
